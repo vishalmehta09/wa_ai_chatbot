@@ -1,12 +1,15 @@
 <?php
 
-$token = 'hello';
-$openAiApi = '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';
-$WhatsAppToken = 'EAADIQJcM8bYBOyfxOqiWduXyGo8ZAkynKM74puyMh2wgevGqJO2ZAhKVSoNjENoN6HdmBuZA3FRZB3zGbSukMkDZCfGppJohf3d1vTSeJDVpqtD5ywShk3ebaRS81aZApDeJvab3CF2Ga83IKXZAeHSlh6CXcwLchShKwoBk0LgHqmZBK4J3z9wuX6BXTDPcZAdcZBYLHSZCSjaEF0UDbKaNBQZD';
-$api_version = 'v17.0';
+require_once(__DIR__ . '/vendor/autoload.php');
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-$phoneid= "115719724934135";
+$token = $_ENV['TOKEN'];
+$openAiApi = $_ENV['OPENAI_API'];
+$WhatsAppToken = $_ENV['WHATSAPP_TOKEN'];
+$api_version = $_ENV['API_VERSION'];
+$phoneid = $_ENV['PHONE_ID'];
 
 if(isset($_REQUEST['hub_challenge'])){
     $challenge = $_REQUEST['hub_challenge'];
